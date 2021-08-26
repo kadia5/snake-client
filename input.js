@@ -1,4 +1,4 @@
-const { connect } = require("./play");
+// const { connect } = require("./play");
 let connection;
 let name;
 const setupInput = function (conn) {
@@ -7,36 +7,39 @@ const setupInput = function (conn) {
   stdin.setRawMode(true);
   stdin.setEncoding("utf8");
   stdin.resume();
-  
+
   stdin.on("data", handleUserInput);
   // console.log(data, )
-  
+
   return stdin;
+
 
 };
 const handleUserInput = function (key) {
-  // your code here
+
   if (key === '\u0003') {
-  process.exit();
-} 
-conn.on("connect", ()=> {
-if (key === '\87'){
-  console.log("Move: up");
-}
-if (key === '\65'){
-  console.log("Move: left");
-}
-if (key === '\83'){
-  console.log("Move: down");
-}
-if (key === '\68'){
-  console.log("Move: right");
-}
-})
+    process.exit();
+  }
+  // connection.on("connect", () => {
+  if (key === 'w') {
+
+    connection.write("Move: up");
+
+  }
+  if (key === 'a') {
+    connection.write("Move: left")
+  }
+  if (key === 's') {
+    connection.write("Move: down");
+  }
+  if (key === 'd') {
+    connection.write("Move: right");
+  }
+  // })
 
 }
 // setupInput()
 module.exports = {
-  setupInput : setupInput,
+  setupInput: setupInput,
   // handleUserInput : handleUserInput
 };

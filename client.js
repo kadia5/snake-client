@@ -10,13 +10,9 @@ const connect = function () {
   });
   conn.on("connect", ()=> {
     console.log("Successfully connected to game server")
-  })
-  conn.on("connect", ()=> {
     console.log("Say: 'Sup")
-  })
-    conn.on("connect", ()=> {
-    
-    setTimeout(function() {console.log("Name: KAD")}, 1000);
+    conn.write("Name: KAD")
+    setTimeout(function() {console.log("Name: 'KAD")}, 1000);
     // setTimeout(
     //   function(){
     //     console.log("Move: up")

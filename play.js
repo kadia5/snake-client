@@ -10,9 +10,10 @@ const { setupInput } = require("./input");
 
 console.log("Connecting ...");
 // setup interface to handle user input from stdin
-connect();
+const conn = connect();
 
-setupInput();
+
+setupInput(conn);
 module.exports = {
   connect : connect
 };
